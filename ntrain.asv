@@ -1,7 +1,7 @@
 
 function [tr] = ntrain(fid, num_arch, num_layers, num_outputs, net, hidden_layers, input, target)
 
-    
+    init(n)
 
     [net, tr] = train(net, input, target);
 

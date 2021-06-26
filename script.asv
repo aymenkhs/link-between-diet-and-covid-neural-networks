@@ -25,7 +25,7 @@ input = intakes';
 target = deaths';
 
 % parameters
-num_architectures = 100;
+num_architectures = 1;
 max_layer = 4;
 max_neurons = 20;
 
@@ -54,20 +54,18 @@ for n = 1 : num_architectures
         
             net.trainFcn = train_functions{i_t};
             
-            net = init(net);
-            
             tr = ntrain(fid, n, num_layers, num_outputs, net, hidden_layers, input, target);
 
             % save best record
             if tr.best_tperf < best_tr.best_tperf
 
                 best_tr = tr;
-                num_conf = (n-1) * 4 + i_t;
+                num_conf = 
             end
     end
     
     
-    name = strcat('arch_', int2str(num_conf));
+    name = strcat('arch_', int2str(n));
     name = strcat(name, '_');
     name = strcat(name, best_tr.trainFcn);
     n;
@@ -75,6 +73,5 @@ for n = 1 : num_architectures
 end
 
 fid(close)
-clear
 
 
