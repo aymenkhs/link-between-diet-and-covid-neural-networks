@@ -2,3 +2,6 @@ plots/*.png
 results.csv
 data.csv
 
+data/country-level_estimates
+data/data.csv
+data/*.xlsx
